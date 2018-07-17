@@ -20,14 +20,19 @@ def upload_file():
       flash('Imported '+ f.filename+ ' successfully')
       return render_template('index.html', dataSet = upload_file.dataSet)
 
-@app.route('/func', methods=['GET', 'POST'])
+@app.route('/divide', methods=['GET', 'POST'])
 def func():
-    X = upload_file.dataSet.iloc[:, :-1].values
-    Y = upload_file.dataSet.iloc[:, 2].values
-    print(X)
-    print(Y)
+    func.X = upload_file.dataSet.iloc[:, :-1].values
+    func.Y = upload_file.dataSet.iloc[:, 2].values
+    print(func.X)
+    print(func.Y)
     flash('Divided into Dependent and Independent variables.')
-    return render_template('index.html', dataSet = upload_file.dataSet, X = X, Y=Y)
+    return render_template('index.html', dataSet = upload_file.dataSet, X = func.X, Y= func.Y)
+
+@app.route('/traintest', methods=['Get', 'POST'])
+def traintest():
+    
+    return render_template('index.html', dataSet = upload_file.dataSet, X = func.X, Y= func.Y)
 
 if __name__ == '__main__':
    app.run(debug = True)
