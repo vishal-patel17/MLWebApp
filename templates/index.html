@@ -5,14 +5,16 @@
         ML Demo
     </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="text-center well"><b>ML App</b></div>
+    <div class="text-center well"><b><a href="" onclick="">ML App</a></b></div>
     {% block content %}
     <div class="container">
         {% for message in get_flashed_messages() %}
         <div class="alert alert-success alert-dismissible">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> 
             {{message}}
         </div>
         {% endfor %}
@@ -26,11 +28,11 @@
                 <button type="submit" class="btn btn-primary">Import</button>
             </form>
             <form action="/func" method="POST">
-                <p>Dividing into Independent and dependent variabes: </p>
+                <p>Dividing into Independent and dependent variabes: 
                 <button type="submit" class="btn btn-primary"> Split </button>
+                </p>
             </form>
         </div>
-
             <div class="col-sm-4">
                 <textarea rows="20" cols="70">{{dataSet}}</textarea>
             </div>

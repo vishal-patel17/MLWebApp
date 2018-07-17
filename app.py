@@ -26,6 +26,7 @@ def func():
     Y = upload_file.dataSet.iloc[:, 2].values
     print(X)
     print(Y)
+    flash('Divided into Dependent and Independent variables.')
     return render_template('index.html', dataSet = upload_file.dataSet, X = X, Y=Y)
 
 if __name__ == '__main__':
