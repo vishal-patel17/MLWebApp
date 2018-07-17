@@ -20,7 +20,6 @@ def upload_file():
       flash('Imported '+ f.filename+ ' successfully')
       return render_template('index.html', dataSet = upload_file.dataSet)
 
-
 @app.route('/func', methods=['GET', 'POST'])
 def func():
     X = upload_file.dataSet.iloc[:, :-1].values
