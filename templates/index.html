@@ -1,0 +1,42 @@
+﻿﻿
+<html>
+<head>
+    <title>
+        ML Demo
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="text-center well"><b>ML App</b></div>
+    {% block content %}
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{message}}
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+    <div class="container">
+        <div class="col-sm-8">
+            <form action="/import" method="POST"
+                  enctype="multipart/form-data">
+                <input type="file" name="file" /> <br />
+                <button type="submit" class="btn btn-primary">Import</button>
+            </form>
+            <form action="/func" method="POST">
+                <p>Dividing into Independent and dependent variabes: </p>
+                <button type="submit" class="btn btn-primary"> Split </button>
+            </form>
+        </div>
+
+            <div class="col-sm-4">
+                <textarea rows="20" cols="70">{{dataSet}}</textarea>
+            </div>
+ 
+    </div>
+
+    <script src="{{url_for('static', filename='main.js')}}"></script>
+</body>
+</html>
