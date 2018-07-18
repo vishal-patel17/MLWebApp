@@ -32,10 +32,12 @@
                 <button type="submit" class="btn btn-primary"> Divide </button>
                 </p>
             </form>
-            <form action="/traintest" method="POST">
-                <p>Spliting into Training set and Test set</p>
-                <button type="submit" class="btn btn-primary"> Split </button>
+            <form action="/rfc" method="POST">
+                <p>Random Forest Classifier: </p>
+                Enter Years of experience: <input type="text" name="YOE" autofocus/>
+                <button type="submit" class="btn btn-primary"> Predict the result </button>
             </form>
+            <p>{{prediction}}</p>
         </div>
             <div class="col-sm-4">
                 <textarea rows="20" cols="70">{{dataSet}}</textarea>

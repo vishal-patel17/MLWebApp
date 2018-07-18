@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, flash
 from werkzeug import secure_filename
 import pandas as pd
 import numpy as np
+from sklearn.ensemble import RandomForestRegressor
 
 app = Flask(__name__)
 app.secret_key = 'random string'
@@ -22,17 +23,18 @@ def upload_file():
 
 @app.route('/divide', methods=['GET', 'POST'])
 def func():
-    func.X = upload_file.dataSet.iloc[:, :-1].values
+    func.X = upload_file.dataSet.iloc[:, 1:2].values
     func.Y = upload_file.dataSet.iloc[:, 2].values
-    print(func.X)
-    print(func.Y)
     flash('Divided into Dependent and Independent variables.')
-    return render_template('index.html', dataSet = upload_file.dataSet, X = func.X, Y= func.Y)
+    return render_template('index.html', dataSet = upload_file.dataSet)
 
-@app.route('/traintest', methods=['Get', 'POST'])
-def traintest():
-    
-    return render_template('index.html', dataSet = upload_file.dataSet, X = func.X, Y= func.Y)
+@app.route('/rfc', methods=['Get', 'POST'])
+def rfc():
+    yoe = request.form['YOE']
+    regressor = RandomForestRegressor(n_estimators=10, random_state=0)
+    regressor.fit(func.X, func.Y)
+    y_pred = regressor.predict(yoe)
+    return render_template('index.html', dataSet = upload_file.dataSet, prediction=y_pred)
 
 if __name__ == '__main__':
    app.run(debug = True)
