@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="text-center well"><b><a href="" onclick="">Random Forest Regression</a></b></div>
+    <div class="text-center well"><b>Random Forest Regression</b></div>
     <header class="header">
         <button class="btn btn-info" onclick="location.href = '/' ">Home</button>
     </header>
@@ -54,6 +54,23 @@
             </div> 
     </div>
     
+    <div id="footer">
+        <center>
+            &copy; Copyright 2018 ML App
+        </center>      
+    </div>
+    <style>
+        #footer
+        {
+            color: white;
+            font-family: sans-serif;
+            position: absolute;
+            height: 60px;
+            width: 100%;
+            bottom: 0;
+            background-color: black;
+        }
+    </style>
     <script src="{{url_for('static', filename='main.js')}}"></script>
 </body>
 </html>

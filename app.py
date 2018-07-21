@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, flash
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
