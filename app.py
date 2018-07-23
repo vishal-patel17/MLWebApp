@@ -39,7 +39,8 @@ def func():
 @app.route('/rfc', methods=['Get', 'POST'])
 def rfc():
     yoe = request.form['YOE']
-    regressor = RandomForestRegressor(n_estimators=10, random_state=0)
+    rfc_n_estimators = request.form['n_estimators']
+    regressor = RandomForestRegressor(n_estimators=int(rfc_n_estimators), random_state=0)
     regressor.fit(func.X, func.Y)
     y_pred = regressor.predict(yoe)
     return render_template('rfr.html', dataSet = upload_file.dataSet, prediction=y_pred)

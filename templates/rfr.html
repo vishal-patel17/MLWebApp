@@ -44,7 +44,8 @@
             </form>
             <form action="/rfc" method="POST">
                 <p>Random Forest Classifier: </p>
-                Enter Years of experience: <input type="text" name="YOE" autofocus/>
+                Enter n_estimators: <input type="text" name="n_estimators" id="n_estimators"/> <br />
+                Enter Years of experience: <input type="text" name="YOE" autofocus/> <br />
                 <button type="submit" class="btn btn-primary"> Predict the result </button>
             </form>
             <p><strong>{{prediction}}</strong></p>
@@ -71,6 +72,8 @@
             background-color: black;
         }
     </style>
-    <script src="{{url_for('static', filename='main.js')}}"></script>
+    <script>
+        document.getElementById("n_estimators").defaultValue = "10";
+    </script>
 </body>
 </html>
