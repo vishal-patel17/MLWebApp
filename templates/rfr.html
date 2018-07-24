@@ -4,6 +4,7 @@
     <title>
         Random Forest
     </title>
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='icon.png')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -46,7 +47,7 @@
                 <p>Random Forest Classifier: </p>
                 Enter n_estimators: <input type="text" name="n_estimators" id="n_estimators"/> <br />
                 Enter Years of experience: <input type="text" name="YOE" autofocus/> <br />
-                <button type="submit" class="btn btn-primary"> Predict the result </button>
+                <button type="submit" class="btn btn-primary"> Predict the salary </button>
             </form>
             <p><strong>{{prediction}}</strong></p>
         </div>
